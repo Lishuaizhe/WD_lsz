@@ -41,8 +41,6 @@ public class OkhttpUtils {
                 .connectTimeout(5, TimeUnit.SECONDS)
                 .readTimeout(5, TimeUnit.SECONDS)
                 .build();//链式调用，构建者模式
-
-
     }
 
 
@@ -60,9 +58,7 @@ public class OkhttpUtils {
                 }
             }
         }
-
         return mInstance;
-
     }
 
     /**
@@ -103,7 +99,6 @@ public class OkhttpUtils {
                         @Override
                         public void run() {
                             requestCallback.success(result);
-
                         }
                     });
                 }

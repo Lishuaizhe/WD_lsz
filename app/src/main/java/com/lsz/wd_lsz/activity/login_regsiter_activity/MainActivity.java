@@ -1,5 +1,9 @@
-package com.lsz.wd_lsz.activity;
+package com.lsz.wd_lsz.activity.login_regsiter_activity;
 
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.text.method.HideReturnsTransformationMethod;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -10,39 +14,34 @@ import com.example.lib_core.base.mvp.BaseMvpActivity;
 import com.example.lib_core.base.mvp.BasePresenter;
 import com.google.gson.Gson;
 import com.lsz.wd_lsz.R;
-import com.lsz.wd_lsz.contract.Logincontract;
-import com.lsz.wd_lsz.entiey.LREntity;
-import com.lsz.wd_lsz.presenter.Loginpresenter;
+import com.lsz.wd_lsz.activity.Main2Activity;
+import com.lsz.wd_lsz.contract.login_regis_contract.Logincontract;
+import com.lsz.wd_lsz.entiey.login_regis_entity.LREntity;
+import com.lsz.wd_lsz.presenter.login_regis_persenter.Loginpresenter;
 
 import java.util.HashMap;
 
 public class MainActivity extends BaseMvpActivity<Logincontract.ILoginModel,Logincontract.ILoginPersenter> implements Logincontract.ILoginView {
 
-    /**
-     * 手机号
-     */
     private EditText mEditName;
-    /**
-     * 登录密码
-     */
     private EditText mEditPass;
     private ImageView mEyeLogin;
-    /**
-     * 记住密码
-     */
     private CheckBox mCheckBox;
-    /**
-     * 快速注册
-     */
     private TextView mZhuCe;
-    /**
-     * 登录
-     */
     private TextView mDengText;
+    private SharedPreferences sharedPreferences;
 
-
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void initClick() {
+
+        mEyeLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mEditPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            }
+        });
+
         //点击进入注册页面
         mZhuCe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,26 +53,41 @@ public class MainActivity extends BaseMvpActivity<Logincontract.ILoginModel,Logi
         mDengText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = mEditName.getText().toString();
-                String pass = mEditPass.getText().toString();
+               String  name = mEditName.getText().toString();
+                String  pass = mEditPass.getText().toString();
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+
                 if (name.length()!=0&&pass.length()!=0){
                     HashMap<String,String> hashMap = new HashMap<>();
                     hashMap.put("mobile",name);
                     hashMap.put("password",pass);
-                    presenter.setLoginList(hashMap);
+
+                    if (mCheckBox.isChecked()){
+                        editor.putBoolean("Da", true);
+                        editor.putString("username", name);
+                        editor.putString("password", pass);
+                        presenter.setLoginList(hashMap);
+                    }else {
+                        editor.clear();
+                        presenter.setLoginList(hashMap);
+                    }
+                    editor.apply();
                 }else {
                     showToast("请输入账号密码");
                 }
             }
         });
-    }
 
+    }
     /*
      * 加载数据
      * */
     protected void initData() {
         super.initData();
     }
+
     /*
      * 加载视图
      * */
@@ -84,6 +98,21 @@ public class MainActivity extends BaseMvpActivity<Logincontract.ILoginModel,Logi
         mCheckBox =  findViewById(R.id.check_box);
         mDengText =  findViewById(R.id.deng_text);
         mZhuCe =  findViewById(R.id.zhu_ce);
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        boolean isRemember = sharedPreferences.getBoolean("Da", false);
+
+        if (isRemember){
+            //账号和密码都设置到文本框
+            String username = sharedPreferences.getString("username","");
+            String password = sharedPreferences.getString("password","");
+
+            mEditName.setText(username);
+            mEditPass.setText(password);
+            mCheckBox.setChecked(true);
+        }
+
     }
 
     @Override
@@ -100,7 +129,7 @@ public class MainActivity extends BaseMvpActivity<Logincontract.ILoginModel,Logi
         if ("登录成功".equals(lrEntity.getMsg())){
             //setIntent();
             showToast("登陆成功");
-            startActivity(HoneActivity.class);
+            startActivity(Main2Activity.class);
         }else {
             showToast("账号密码错误!");
         }

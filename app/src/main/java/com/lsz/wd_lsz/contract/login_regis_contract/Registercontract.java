@@ -1,11 +1,10 @@
-package com.lsz.wd_lsz.contract;
+package com.lsz.wd_lsz.contract.login_regis_contract;
 
 import com.example.lib_core.base.mvp.BasePresenter;
 import com.example.lib_core.base.mvp.IBaseModel;
 import com.example.lib_core.base.mvp.IBaseView;
 import com.example.lib_core.net.OkhttpCallback;
-import com.lsz.wd_lsz.model.Loginmodel;
-import com.lsz.wd_lsz.model.Registermodel;
+import com.lsz.wd_lsz.model.login_regis_model.Registermodel;
 
 import java.util.HashMap;
 
@@ -27,5 +26,4 @@ public interface Registercontract {
          void onsuccess(String relst);
          void onFail(String msg);
      }
-
 }

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WD_lsz</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_home">首页</string>
+    <string name="title_dashboard">视频</string>
+    <string name="title_notifications">我的</string>
 </resources>

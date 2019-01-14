@@ -1,4 +1,4 @@
-package com.lsz.wd_lsz.activity;
+package com.lsz.wd_lsz.activity.login_regsiter_activity;
 
 import android.view.View;
 import android.widget.EditText;
@@ -9,10 +9,9 @@ import com.example.lib_core.base.mvp.BaseMvpActivity;
 import com.example.lib_core.base.mvp.BasePresenter;
 import com.google.gson.Gson;
 import com.lsz.wd_lsz.R;
-import com.lsz.wd_lsz.contract.Registercontract;
-import com.lsz.wd_lsz.entiey.LREntity;
-import com.lsz.wd_lsz.entiey.REntity;
-import com.lsz.wd_lsz.presenter.Regispresenter;
+import com.lsz.wd_lsz.contract.login_regis_contract.Registercontract;
+import com.lsz.wd_lsz.entiey.login_regis_entity.REntity;
+import com.lsz.wd_lsz.presenter.login_regis_persenter.Regispresenter;
 
 import java.util.HashMap;
 
@@ -43,6 +42,8 @@ public class RegisterActivity extends BaseMvpActivity<Registercontract.RegisterM
      * 注册
      */
     private TextView mZhuceButton;
+    private String name;
+    private String pass;
 
     @Override
     protected void initClick() {
@@ -62,8 +63,6 @@ public class RegisterActivity extends BaseMvpActivity<Registercontract.RegisterM
         mZhuceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = mZhuName.getText().toString().intern();
-                String pass = mZhuPass.getText().toString().intern();
                 if (name.length()!=0&&pass.length()!=0){
                     HashMap<String,String> hashMap = new HashMap<>();
                     hashMap.put("mobile",name);
@@ -81,6 +80,8 @@ public class RegisterActivity extends BaseMvpActivity<Registercontract.RegisterM
     * */
     protected void initData() {
         super.initData();
+        name = mZhuName.getText().toString().intern();
+        pass = mZhuPass.getText().toString().intern();
     }
 
     /*

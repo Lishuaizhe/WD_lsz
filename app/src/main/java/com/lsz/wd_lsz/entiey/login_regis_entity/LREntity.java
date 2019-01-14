@@ -1,4 +1,4 @@
-package com.lsz.wd_lsz.entiey;
+package com.lsz.wd_lsz.entiey.login_regis_entity;
 
 public class LREntity {
 

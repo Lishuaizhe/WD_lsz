@@ -6,7 +6,7 @@
     android:background="@drawable/login_back"
     android:paddingLeft="36dp"
     android:paddingRight="36dp"
-    tools:context=".activity.RegisterActivity"
+    tools:context=".activity.login_regsiter_activity.RegisterActivity"
     android:orientation="vertical">
 
     <LinearLayout
@@ -53,7 +53,7 @@
                 android:textColorHint="#ffff"
                 android:textSize="18sp"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/login_yan"
+                android:drawableLeft="@drawable/login_icon"
                 android:layout_width="match_parent"
                 android:drawablePadding="20dp"
                 android:layout_height="30dp"
