@@ -1,8 +1,10 @@
 package com.lsz.wd_lsz.activity.login_regsiter_activity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBar;
 import android.text.method.HideReturnsTransformationMethod;
 import android.view.View;
 import android.widget.CheckBox;
@@ -98,6 +100,16 @@ public class MainActivity extends BaseMvpActivity<Logincontract.ILoginModel,Logi
         mCheckBox =  findViewById(R.id.check_box);
         mDengText =  findViewById(R.id.deng_text);
         mZhuCe =  findViewById(R.id.zhu_ce);
+
+        View decorView = getWindow().getDecorView();
+//        SYSTEM_UI_FLAG_FULLSCREEN表示全屏的意思，也就是会将状态栏隐藏
+        //设置系统UI元素的可见性
+        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+        //隐藏标题栏
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
+
+
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 

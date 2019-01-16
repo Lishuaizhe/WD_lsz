@@ -12,9 +12,6 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.lsz.wd_lsz.R;
-import com.lsz.wd_lsz.contract.ShouYecontract;
-import com.lsz.wd_lsz.entiey.Shouye_List_Bean;
-import com.lsz.wd_lsz.presenter.ShouYepresenter;
 
 import java.util.HashMap;
 
@@ -34,12 +31,16 @@ public class ShowYeFragment extends Fragment implements ShouYecontract.IShowYeVi
         super.onViewCreated(view, savedInstanceState);
         shouYepresenter = new ShouYepresenter(this);
         shouYepresenter.setShowYeList(new HashMap<String, String>());
+        initView(view);
+    }
+
+    private void initView(View view) {
+
     }
 
     @Override
     public void onsuccess(String relst) {
         Shouye_List_Bean shouye_list_bean = new Gson().fromJson(relst, Shouye_List_Bean.class);
-        
     }
 
     @Override
@@ -50,6 +51,4 @@ public class ShowYeFragment extends Fragment implements ShouYecontract.IShowYeVi
     private void ShowToast(String msg) {
         Toast.makeText(getActivity(),msg,Toast.LENGTH_SHORT).show();
     }
-
-
 }

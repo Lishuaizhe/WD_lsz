@@ -1,6 +1,7 @@
 package com.lsz.wd_lsz.myapp;
 
 import android.app.Application;
+import android.view.WindowManager;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -28,8 +29,7 @@ public class App  extends Application {
         *
         * */
         imageLoader2();
-
-
+        
     }
 
     private void imageLoader2() {
@@ -51,5 +51,7 @@ public class App  extends Application {
         JPushInterface.init(this);
 
     }
+
+
 
 }

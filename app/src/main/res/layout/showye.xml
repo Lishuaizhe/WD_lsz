@@ -3,7 +3,36 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#ddd">
+    android:background="#00000000"
+    android:layout_margin="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="24dp"
+            android:background="@drawable/common_nav_btn_menu"
+            android:layout_height="24dp" />
+
+        <View
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+        <ImageView
+            android:background="@drawable/common_nav_btn_search"
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+    </LinearLayout>
+
+
+
+
+
+
+
+
 
 
 </LinearLayout>
