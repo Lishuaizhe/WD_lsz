@@ -15,10 +15,7 @@ import com.lsz.wd_lsz.R;
 
 import java.util.HashMap;
 
-public class ShowYeFragment extends Fragment implements ShouYecontract.IShowYeView {
-
-
-    private ShouYepresenter shouYepresenter;
+public class ShowYeFragment extends Fragment {
 
     @Nullable
     @Override
@@ -26,29 +23,4 @@ public class ShowYeFragment extends Fragment implements ShouYecontract.IShowYeVi
         return inflater.inflate(R.layout.showye,container,false);
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        shouYepresenter = new ShouYepresenter(this);
-        shouYepresenter.setShowYeList(new HashMap<String, String>());
-        initView(view);
-    }
-
-    private void initView(View view) {
-
-    }
-
-    @Override
-    public void onsuccess(String relst) {
-        Shouye_List_Bean shouye_list_bean = new Gson().fromJson(relst, Shouye_List_Bean.class);
-    }
-
-    @Override
-    public void onFail(String msg) {
-        ShowToast(msg);
-    }
-
-    private void ShowToast(String msg) {
-        Toast.makeText(getActivity(),msg,Toast.LENGTH_SHORT).show();
-    }
 }
