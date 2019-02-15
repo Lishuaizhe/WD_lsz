@@ -146,7 +146,7 @@
         </receiver>
 
         <activity
-            android:name=".activity.Main2Activity"
+            android:name=".activity.view_activity_page.Main2Activity"
             android:label="@string/title_activity_main2"></activity>
     </application>
 

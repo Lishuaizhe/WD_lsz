@@ -9,9 +9,9 @@ import com.example.lib_core.base.mvp.BaseMvpActivity;
 import com.example.lib_core.base.mvp.BasePresenter;
 import com.google.gson.Gson;
 import com.lsz.wd_lsz.R;
-import com.lsz.wd_lsz.contract.login_regis_contract.Registercontract;
+import com.lsz.wd_lsz.mvp.contract.login_regis_contract.Registercontract;
 import com.lsz.wd_lsz.entiey.login_regis_entity.REntity;
-import com.lsz.wd_lsz.presenter.login_regis_persenter.Regispresenter;
+import com.lsz.wd_lsz.mvp.presenter.login_regis_persenter.Regispresenter;
 
 import java.util.HashMap;
 

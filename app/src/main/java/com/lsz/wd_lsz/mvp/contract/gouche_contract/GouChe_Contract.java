@@ -1,7 +1,7 @@
-package com.lsz.wd_lsz.contract.gouche_contract;
+package com.lsz.wd_lsz.mvp.contract.gouche_contract;
 
 import com.lsz.wd_lsz.entiey.gouche_entity.LBean_G;
-import com.lsz.wd_lsz.model.gouche_model.GouChe_Model;
+import com.lsz.wd_lsz.mvp.model.gouche_model.GouChe_Model;
 
 import java.util.HashMap;
 import java.util.List;

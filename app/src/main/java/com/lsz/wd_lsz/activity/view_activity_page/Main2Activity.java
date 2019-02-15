@@ -1,4 +1,4 @@
-package com.lsz.wd_lsz.activity;
+package com.lsz.wd_lsz.activity.view_activity_page;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -51,6 +51,7 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        getSupportActionBar().hide();
 
         intiView();
 

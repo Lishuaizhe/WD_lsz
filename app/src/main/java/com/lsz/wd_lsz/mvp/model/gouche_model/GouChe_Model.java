@@ -1,8 +1,8 @@
-package com.lsz.wd_lsz.model.gouche_model;
+package com.lsz.wd_lsz.mvp.model.gouche_model;
 
 import com.example.lib_core.net.OkhttpCallback;
 import com.example.lib_core.net.OkhttpUtils;
-import com.lsz.wd_lsz.contract.gouche_contract.GouChe_Contract;
+import com.lsz.wd_lsz.mvp.contract.gouche_contract.GouChe_Contract;
 
 import java.util.HashMap;
 

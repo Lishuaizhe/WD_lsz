@@ -1,7 +1,6 @@
 package com.lsz.wd_lsz.activity.login_regsiter_activity;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
@@ -16,10 +15,10 @@ import com.example.lib_core.base.mvp.BaseMvpActivity;
 import com.example.lib_core.base.mvp.BasePresenter;
 import com.google.gson.Gson;
 import com.lsz.wd_lsz.R;
-import com.lsz.wd_lsz.activity.Main2Activity;
-import com.lsz.wd_lsz.contract.login_regis_contract.Logincontract;
+import com.lsz.wd_lsz.activity.view_activity_page.Main2Activity;
+import com.lsz.wd_lsz.mvp.contract.login_regis_contract.Logincontract;
 import com.lsz.wd_lsz.entiey.login_regis_entity.LREntity;
-import com.lsz.wd_lsz.presenter.login_regis_persenter.Loginpresenter;
+import com.lsz.wd_lsz.mvp.presenter.login_regis_persenter.Loginpresenter;
 
 import java.util.HashMap;
 
