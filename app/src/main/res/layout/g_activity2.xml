@@ -47,7 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
-                <com.lsz.wd_lsz.view.G_My_View
+                <com.lsz.wd_lsz.user.view.G_My_View
                     android:id="@+id/g_zidingyi"
                     android:layout_weight="1"
                     android:layout_width="match_parent"

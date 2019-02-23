@@ -14,7 +14,7 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.lsz.wd_lsz.R;
 import com.lsz.wd_lsz.mvp.callback.CallcarBack;
 import com.lsz.wd_lsz.entiey.gouche_entity.LBean_G;
-import com.lsz.wd_lsz.view.G_My_View;
+import com.lsz.wd_lsz.user.view.G_My_View;
 
 import java.util.List;
 

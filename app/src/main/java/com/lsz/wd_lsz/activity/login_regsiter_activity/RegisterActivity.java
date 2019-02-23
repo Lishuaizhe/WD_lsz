@@ -9,9 +9,9 @@ import com.example.lib_core.base.mvp.BaseMvpActivity;
 import com.example.lib_core.base.mvp.BasePresenter;
 import com.google.gson.Gson;
 import com.lsz.wd_lsz.R;
-import com.lsz.wd_lsz.mvp.contract.login_regis_contract.Registercontract;
+import com.lsz.wd_lsz.mvp.login_regis_mvp.login_regis_contract.Registercontract;
 import com.lsz.wd_lsz.entiey.login_regis_entity.REntity;
-import com.lsz.wd_lsz.mvp.presenter.login_regis_persenter.Regispresenter;
+import com.lsz.wd_lsz.mvp.login_regis_mvp.login_regis_persenter.Regispresenter;
 
 import java.util.HashMap;
 
@@ -21,10 +21,6 @@ public class RegisterActivity extends BaseMvpActivity<Registercontract.RegisterM
      * 手机号
      */
     private EditText mZhuName;
-    /**
-     * 验证码
-     */
-    private EditText mZhuYan;
     /**
      * 获取验证码
      */
@@ -63,10 +59,12 @@ public class RegisterActivity extends BaseMvpActivity<Registercontract.RegisterM
         mZhuceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                name = mZhuName.getText().toString().intern();
+                pass = mZhuPass.getText().toString().intern();
                 if (name.length()!=0&&pass.length()!=0){
                     HashMap<String,String> hashMap = new HashMap<>();
-                    hashMap.put("mobile",name);
-                    hashMap.put("password",pass);
+                    hashMap.put("phone",name);
+                    hashMap.put("pwd",pass);
                     presenter.setRegisterList(hashMap);
                 }else {
                     showToast("请输入账号密码");
@@ -80,8 +78,6 @@ public class RegisterActivity extends BaseMvpActivity<Registercontract.RegisterM
     * */
     protected void initData() {
         super.initData();
-        name = mZhuName.getText().toString().intern();
-        pass = mZhuPass.getText().toString().intern();
     }
 
     /*
@@ -89,8 +85,6 @@ public class RegisterActivity extends BaseMvpActivity<Registercontract.RegisterM
     * */
     protected void initView() {
         mZhuName =  findViewById(R.id.zhu_name);
-        mZhuYan =  findViewById(R.id.zhu_yan);
-        mZhuYanZheng =  findViewById(R.id.zhu_yan_zheng);
         mZhuPass =  findViewById(R.id.zhu_pass);
         mEyeZhuce =  findViewById(R.id.eye_zhuce);
         mZhuceLogin =  findViewById(R.id.zhuce_login);
@@ -105,16 +99,11 @@ public class RegisterActivity extends BaseMvpActivity<Registercontract.RegisterM
     public void onsuccess(String relst) {
 
         REntity lrEntity = new Gson().fromJson(relst, REntity.class);
-        String msg = lrEntity.getMsg();
-        if ("注册成功".equals(msg)){
+        String code = lrEntity.getStatus();
+        if (code=="0000"){
             startActivity(MainActivity.class);
-        }else if ("天呢！用户已注册".equals(msg)){
-            showToast("用户已经注册过了");
-            startActivity(MainActivity.class);
-        }else if ("请输入正确的手机号码".equals(msg)){
-            showToast("请输入正确的手机号码");
         }else {
-            showToast("在检查一遍吧！");
+            showToast(lrEntity.getMessage());
         }
     }
 

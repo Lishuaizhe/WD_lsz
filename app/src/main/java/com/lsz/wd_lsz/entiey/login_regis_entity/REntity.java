@@ -3,31 +3,24 @@ package com.lsz.wd_lsz.entiey.login_regis_entity;
 public class REntity {
 
 
-    private String msg;
-    private String code;
-    private String data;
 
-    public String getMsg() {
-        return msg;
+
+    private String message;
+    private String status;
+
+    public String getMessage() {
+        return message;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public String getCode() {
-        return code;
+    public String getStatus() {
+        return status;
     }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

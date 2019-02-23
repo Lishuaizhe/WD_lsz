@@ -4,6 +4,6 @@
     <string name="title_home">首页</string>
     <string name="title_dashboard">圈子</string>
     <string name="title_notifications">购物车</string>
-    <string name="shop">订单</string>
-    <string name="diangdan">我的</string>
+    <string name="shop">我的</string>
+    <string name="diangdan">订单</string>
 </resources>

@@ -17,9 +17,9 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.lsz.wd_lsz.R;
 import com.lsz.wd_lsz.adapter.gouche_adapter.My_adapter;
 import com.lsz.wd_lsz.mvp.callback.CallUiBack;
-import com.lsz.wd_lsz.mvp.contract.gouche_contract.GouChe_Contract;
+import com.lsz.wd_lsz.mvp.gouwuce_mvp.gouche_contract.GouChe_Contract;
 import com.lsz.wd_lsz.entiey.gouche_entity.LBean_G;
-import com.lsz.wd_lsz.mvp.presenter.gouche_persenter.GouChe_Persenter;
+import com.lsz.wd_lsz.mvp.gouwuce_mvp.gouche_persenter.GouChe_Persenter;
 
 import java.util.HashMap;
 import java.util.List;

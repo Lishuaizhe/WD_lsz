@@ -51,21 +51,23 @@ dependencies {
     api 'cn.jiguang.sdk:jcore:1.1.9'
     // 此处以JCore 1.1.9 版本为例。
     //banner轮播
-    implementation 'com.xhb:xbanner:1.2.2'
+    implementation 'com.xhb:xbanner:1.5.1'
     implementation 'com.nineoldandroids:library:2.4.0'
     //okhttp
-    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
     implementation 'com.google.code.gson:gson:2.8.5'
     //黄油刀
-    implementation 'com.jakewharton:butterknife:8.7.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     //图片加载框架，glide
-    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 
     implementation 'com.jcodecraeer:xrecyclerview:1.5.9'
-    
+
+    implementation 'com.facebook.fresco:fresco:0.13.0'
+
 }
 configurations.all {
     resolutionStrategy.eachDependency { DependencyResolveDetails details ->
@@ -77,5 +79,3 @@ configurations.all {
         }
     }
 }
-
-

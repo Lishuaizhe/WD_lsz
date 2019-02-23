@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".myapp.App"
+        android:name=".user.app.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -119,14 +119,14 @@
         <service
             android:name="cn.jpush.android.service.DownloadService"
             android:enabled="true"
-            android:exported="false"></service>
+            android:exported="false" />
 
         <!-- Required SDK核心功能 -->
         <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
 
         <!-- User defined. 用户自定义的广播接收器 -->
         <receiver
-            android:name=".resceiver.MyReceiver"
+            android:name=".user.resceiver.MyReceiver"
             android:enabled="true">
             <intent-filter>
 
@@ -147,7 +147,9 @@
 
         <activity
             android:name=".activity.view_activity_page.Main2Activity"
-            android:label="@string/title_activity_main2"></activity>
+            android:label="@string/title_activity_main2" />
+        <activity android:name=".activity.xiangqingye.Main3Activity" />
+        <activity android:name=".activity.xiangqingye.Main4Activity"></activity>
     </application>
 
 </manifest>

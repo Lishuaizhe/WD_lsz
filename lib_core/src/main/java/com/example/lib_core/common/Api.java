@@ -6,13 +6,13 @@ package com.example.lib_core.common;
 public class Api {
     /*
      * 登录接口
-     * http://www.zhaoapi.cn/user/login?mobile=15100058141&password=123223
+     * http://172.17.8.100/small/user/v1/login?phone=15100058141&pwd=123223
      * */
-    public static final String LOGIN_L ="http://www.zhaoapi.cn/user/login";
+    public static final String LOGIN_L ="http://172.17.8.100/small/user/v1/login";
 
     /*
      * 注册接口
-     * http://www.zhaoapi.cn/user/reg?mobile=15100058142&password=123223
+     * http://172.17.8.100/small/user/v1/register?phone=15100058141&pwd=123223
      *  */
-    public static final String ZHUCE_Z ="http://www.zhaoapi.cn/user/reg";
+    public static final String ZHUCE_Z ="http://172.17.8.100/small/user/v1/register";
 }

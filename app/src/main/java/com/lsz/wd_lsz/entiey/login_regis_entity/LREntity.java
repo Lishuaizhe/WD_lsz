@@ -3,215 +3,98 @@ package com.lsz.wd_lsz.entiey.login_regis_entity;
 public class LREntity {
 
 
-    private String msg;
-    private String code;
-    private DataBean data;
 
-    public String getMsg() {
-        return msg;
+    private ResultBean result;
+    private String message;
+    private String status;
+
+    public ResultBean getResult() {
+        return result;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setResult(ResultBean result) {
+        this.result = result;
     }
 
-    public String getCode() {
-        return code;
+    public String getMessage() {
+        return message;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public DataBean getData() {
-        return data;
+    public String getStatus() {
+        return status;
     }
 
-    public void setData(DataBean data) {
-        this.data = data;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public static class DataBean {
+    public static class ResultBean {
+        /**
+         * headPic : http://172.17.8.100/images/small/default/user.jpg
+         * nickName : Sw_0xY91
+         * phone : 15100058141
+         * sessionId : 1550574289092603
+         * sex : 1
+         * userId : 603
+         */
 
-        private Object age;
-        private String appkey;
-        private String appsecret;
-        private String createtime;
-        private Object email;
-        private Object fans;
-        private Object follow;
-        private Object gender;
-        private Object icon;
-        private Object latitude;
-        private Object longitude;
-        private String mobile;
-        private Object money;
-        private Object nickname;
-        private String password;
-        private Object praiseNum;
-        private String token;
-        private int uid;
-        private Object userId;
-        private String username;
+        private String headPic;
+        private String nickName;
+        private String phone;
+        private String sessionId;
+        private int sex;
+        private int userId;
 
-        public Object getAge() {
-            return age;
+        public String getHeadPic() {
+            return headPic;
         }
 
-        public void setAge(Object age) {
-            this.age = age;
+        public void setHeadPic(String headPic) {
+            this.headPic = headPic;
         }
 
-        public String getAppkey() {
-            return appkey;
+        public String getNickName() {
+            return nickName;
         }
 
-        public void setAppkey(String appkey) {
-            this.appkey = appkey;
+        public void setNickName(String nickName) {
+            this.nickName = nickName;
         }
 
-        public String getAppsecret() {
-            return appsecret;
+        public String getPhone() {
+            return phone;
         }
 
-        public void setAppsecret(String appsecret) {
-            this.appsecret = appsecret;
+        public void setPhone(String phone) {
+            this.phone = phone;
         }
 
-        public String getCreatetime() {
-            return createtime;
+        public String getSessionId() {
+            return sessionId;
         }
 
-        public void setCreatetime(String createtime) {
-            this.createtime = createtime;
+        public void setSessionId(String sessionId) {
+            this.sessionId = sessionId;
         }
 
-        public Object getEmail() {
-            return email;
+        public int getSex() {
+            return sex;
         }
 
-        public void setEmail(Object email) {
-            this.email = email;
+        public void setSex(int sex) {
+            this.sex = sex;
         }
 
-        public Object getFans() {
-            return fans;
-        }
-
-        public void setFans(Object fans) {
-            this.fans = fans;
-        }
-
-        public Object getFollow() {
-            return follow;
-        }
-
-        public void setFollow(Object follow) {
-            this.follow = follow;
-        }
-
-        public Object getGender() {
-            return gender;
-        }
-
-        public void setGender(Object gender) {
-            this.gender = gender;
-        }
-
-        public Object getIcon() {
-            return icon;
-        }
-
-        public void setIcon(Object icon) {
-            this.icon = icon;
-        }
-
-        public Object getLatitude() {
-            return latitude;
-        }
-
-        public void setLatitude(Object latitude) {
-            this.latitude = latitude;
-        }
-
-        public Object getLongitude() {
-            return longitude;
-        }
-
-        public void setLongitude(Object longitude) {
-            this.longitude = longitude;
-        }
-
-        public String getMobile() {
-            return mobile;
-        }
-
-        public void setMobile(String mobile) {
-            this.mobile = mobile;
-        }
-
-        public Object getMoney() {
-            return money;
-        }
-
-        public void setMoney(Object money) {
-            this.money = money;
-        }
-
-        public Object getNickname() {
-            return nickname;
-        }
-
-        public void setNickname(Object nickname) {
-            this.nickname = nickname;
-        }
-
-        public String getPassword() {
-            return password;
-        }
-
-        public void setPassword(String password) {
-            this.password = password;
-        }
-
-        public Object getPraiseNum() {
-            return praiseNum;
-        }
-
-        public void setPraiseNum(Object praiseNum) {
-            this.praiseNum = praiseNum;
-        }
-
-        public String getToken() {
-            return token;
-        }
-
-        public void setToken(String token) {
-            this.token = token;
-        }
-
-        public int getUid() {
-            return uid;
-        }
-
-        public void setUid(int uid) {
-            this.uid = uid;
-        }
-
-        public Object getUserId() {
+        public int getUserId() {
             return userId;
         }
 
-        public void setUserId(Object userId) {
+        public void setUserId(int userId) {
             this.userId = userId;
-        }
-
-        public String getUsername() {
-            return username;
-        }
-
-        public void setUsername(String username) {
-            this.username = username;
         }
     }
 }

@@ -16,9 +16,9 @@ import com.example.lib_core.base.mvp.BasePresenter;
 import com.google.gson.Gson;
 import com.lsz.wd_lsz.R;
 import com.lsz.wd_lsz.activity.view_activity_page.Main2Activity;
-import com.lsz.wd_lsz.mvp.contract.login_regis_contract.Logincontract;
+import com.lsz.wd_lsz.mvp.login_regis_mvp.login_regis_contract.Logincontract;
 import com.lsz.wd_lsz.entiey.login_regis_entity.LREntity;
-import com.lsz.wd_lsz.mvp.presenter.login_regis_persenter.Loginpresenter;
+import com.lsz.wd_lsz.mvp.login_regis_mvp.login_regis_persenter.Loginpresenter;
 
 import java.util.HashMap;
 
@@ -62,8 +62,8 @@ public class MainActivity extends BaseMvpActivity<Logincontract.ILoginModel,Logi
 
                 if (name.length()!=0&&pass.length()!=0){
                     HashMap<String,String> hashMap = new HashMap<>();
-                    hashMap.put("mobile",name);
-                    hashMap.put("password",pass);
+                    hashMap.put("phone",name);
+                    hashMap.put("pwd",pass);
 
                     if (mCheckBox.isChecked()){
                         editor.putBoolean("Da", true);
@@ -108,8 +108,6 @@ public class MainActivity extends BaseMvpActivity<Logincontract.ILoginModel,Logi
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-
-
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         boolean isRemember = sharedPreferences.getBoolean("Da", false);
@@ -137,7 +135,7 @@ public class MainActivity extends BaseMvpActivity<Logincontract.ILoginModel,Logi
     @Override
     public void onsuccess(String relst) {
         LREntity lrEntity = new Gson().fromJson(relst, LREntity.class);
-        if ("登录成功".equals(lrEntity.getMsg())){
+        if ("0000".equals(lrEntity.getStatus())){
             //setIntent();
             showToast("登陆成功");
             startActivity(Main2Activity.class);
