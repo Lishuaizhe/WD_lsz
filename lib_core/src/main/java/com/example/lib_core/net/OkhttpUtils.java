@@ -73,8 +73,8 @@ public class OkhttpUtils {
                 p.append(map.getKey()).append("=").append(map.getValue()).append("&");
             }
         }
-        Request request = new Request.Builder().url(url+"?"+p.toString())
-                .addHeader("userId","603").addHeader("sessionId","1550814993197603").get().build();
+        Request request = new Request.Builder().url(url+"?"+p.toString())//1550992070631607
+                .addHeader("userId","607").addHeader("sessionId","1550992070631607").get().build();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {

@@ -1,3 +1,4 @@
+/*
 package com.lsz.wd_lsz.adapter.gouche_adapter;
 
 import android.content.Context;
@@ -115,3 +116,4 @@ public class My_adapter2 extends XRecyclerView.Adapter<My_adapter2.Iv_v>{
     }
 
 }
+*/

@@ -22,8 +22,7 @@ public class GouChe_Persenter extends GouChe_Contract.IG_p {
         model.GetData(hashMap, new GouChe_Model.GouChe_Model_CallBack() {
             @Override
             public void Success(String s) {
-                LBean_G lBean_g = new Gson().fromJson(s, LBean_G.class);
-                view.Success(lBean_g.data);
+                view.Success(s);
             }
 
             @Override

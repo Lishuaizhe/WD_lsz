@@ -17,7 +17,7 @@ public interface GouChe_Contract {
     }
 
     interface IG_v{
-        void Success(List<LBean_G.Cart> s);
+        void Success(String s);
         void Fuil(String s);
     }
 

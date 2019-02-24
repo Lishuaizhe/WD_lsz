@@ -4,30 +4,82 @@ import java.util.List;
 
 public class LBean_G {
 
-    public String code;
-    public String msg;
-    public List<Cart> data;
 
-    public class Cart {
+    private String message;
+    private String status;
+    private List<ResultBean> result;
 
-        public boolean isChecked;//一级列表是否选中标志位
-
-        public String sellerName;
-        public String sellerid;
-        public List<Product> list;
-
-        public class Product {
-            public boolean isProductChecked;//二级
-            public String title;
-            public String images;
-            public double price;
-            public String pid;
-            public int pos;
-            public int productNum =1;
-        }
+    public String getMessage() {
+        return message;
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<ResultBean> getResult() {
+        return result;
+    }
+
+    public void setResult(List<ResultBean> result) {
+        this.result = result;
+    }
+
+    public static class ResultBean {
 
 
+        private int commodityId;
+        private String commodityName;
+        private int count;
+        private String pic;
+        private int price;
 
+        public int getCommodityId() {
+            return commodityId;
+        }
+
+        public void setCommodityId(int commodityId) {
+            this.commodityId = commodityId;
+        }
+
+        public String getCommodityName() {
+            return commodityName;
+        }
+
+        public void setCommodityName(String commodityName) {
+            this.commodityName = commodityName;
+        }
+
+        public int getCount() {
+            return count;
+        }
+
+        public void setCount(int count) {
+            this.count = count;
+        }
+
+        public String getPic() {
+            return pic;
+        }
+
+        public void setPic(String pic) {
+            this.pic = pic;
+        }
+
+        public int getPrice() {
+            return price;
+        }
+
+        public void setPrice(int price) {
+            this.price = price;
+        }
+    }
 }

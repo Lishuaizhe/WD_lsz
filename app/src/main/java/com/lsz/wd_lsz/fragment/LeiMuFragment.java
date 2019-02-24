@@ -13,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.lsz.wd_lsz.R;
 import com.lsz.wd_lsz.adapter.gouche_adapter.My_adapter;
@@ -30,7 +31,7 @@ public class LeiMuFragment extends Fragment implements GouChe_Contract.IG_v,Call
     private CheckBox checkBox;
     private XRecyclerView xRecyclerView;
     private GouChe_Persenter persenter;
-    private List<LBean_G.Cart> carts;
+    private List<LBean_G.ResultBean> carts;
     private My_adapter adapter;
 
     @Nullable
@@ -50,54 +51,21 @@ public class LeiMuFragment extends Fragment implements GouChe_Contract.IG_v,Call
         button = view.findViewById(R.id.a_button);
         xRecyclerView = view.findViewById(R.id.a_x_recy_view);
         checkBox = view.findViewById(R.id.a_xuan);
-        xRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
     }
 
     private void initData() {
         persenter = new GouChe_Persenter(this);
-        HashMap<String,String> hashMap = new HashMap<>();
-        hashMap.put("uid","91");
-        persenter.GetData(hashMap);
-
-
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    for (LBean_G.Cart cart : carts) {
-                        cart.isChecked=true;
-                        for (LBean_G.Cart.Product g: cart.list) {
-                            g.isProductChecked=true;
-                        }
-                    }
-                }else {
-                    for (LBean_G.Cart cart : carts) {
-                        cart.isChecked=false;
-                        for (LBean_G.Cart.Product g: cart.list) {
-                            g.isProductChecked=false;
-                        }
-                    }
-                }
-                adapter.notifyDataSetChanged();
-                getPrace();
-            }
-        });
+        persenter.GetData(new HashMap<String, String>());
     }
 
+
     @Override
-    public void Success(List<LBean_G.Cart> s) {
-        if (s!=null) {
-            carts = s;
+    public void Success(String s) {
 
-            for (LBean_G.Cart cart : s) {
-                for (LBean_G.Cart.Product product : cart.list) {
-                    product.productNum=1;
-                }
-            }
-
-            adapter = new My_adapter(s, getActivity());
-            adapter.setCallUiBack(this);
+        LBean_G lBean_g = new Gson().fromJson(s, LBean_G.class);
+        if (lBean_g!=null) {
+            adapter = new My_adapter(lBean_g.getResult(),getActivity());
+            xRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             xRecyclerView.setAdapter(adapter);
         }
     }
@@ -107,7 +75,12 @@ public class LeiMuFragment extends Fragment implements GouChe_Contract.IG_v,Call
         Toast.makeText(getContext(),s,Toast.LENGTH_SHORT).show();
     }
 
-    private void getPrace() {
+    @Override
+    public void ShuaXin() {
+
+    }
+
+    /*private void getPrace() {
         double a =0;
         for (LBean_G.Cart cart : carts) {
             for (LBean_G.Cart.Product product : cart.list) {
@@ -118,9 +91,9 @@ public class LeiMuFragment extends Fragment implements GouChe_Contract.IG_v,Call
         }
         checkBox.setText("￥："+a);
     }
-
+*//*
     @Override
     public void ShuaXin() {
         getPrace();
-    }
+    }*/
 }

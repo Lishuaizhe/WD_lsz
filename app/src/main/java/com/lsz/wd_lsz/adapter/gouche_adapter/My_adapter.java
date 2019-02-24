@@ -19,7 +19,7 @@ import java.util.List;
 
 public class My_adapter extends XRecyclerView.Adapter<My_adapter.Iv_v> implements CallcarBack {
 
-    private List<LBean_G.Cart> list;
+    private List<LBean_G.ResultBean> list;
     private Context context;
     private CallUiBack callUiBack;
 
@@ -27,11 +27,10 @@ public class My_adapter extends XRecyclerView.Adapter<My_adapter.Iv_v> implement
         this.callUiBack = callUiBack;
     }
 
-    public My_adapter(List<LBean_G.Cart> list, Context context) {
+    public My_adapter(List<LBean_G.ResultBean> list, Context context) {
         this.list = list;
         this.context = context;
     }
-
 
     @NonNull
     @Override
@@ -42,14 +41,18 @@ public class My_adapter extends XRecyclerView.Adapter<My_adapter.Iv_v> implement
 
     @Override
     public void onBindViewHolder(@NonNull final Iv_v iv_v, int i) {
-        final LBean_G.Cart cart = list.get(i);
-        iv_v.checkBox.setChecked(cart.isChecked);
 
-        for (LBean_G.Cart.Product cart1 : cart.list) {
-            cart1.pos=i;
-        }
+        LBean_G.ResultBean resultBean = list.get(i);
 
-        iv_v.checkBox.setOnClickListener(new View.OnClickListener() {
+
+        //        final LBean_G.Cart cart = list.get(i);
+//        iv_v.checkBox.setChecked(cart.isChecked);
+///*
+//        for (LBean_G.Cart.Product cart1 : cart.list) {
+//            cart1.pos=i;
+//        }*/
+
+/*        iv_v.checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -64,14 +67,14 @@ public class My_adapter extends XRecyclerView.Adapter<My_adapter.Iv_v> implement
                     callUiBack.ShuaXin();
                 }
             }
-        });
+        });*/
 
 
-        iv_v.textView.setText(cart.sellerName);
-        iv_v.xRecyclerView.setLayoutManager(new LinearLayoutManager(context));
+        iv_v.textView.setText(resultBean.getCommodityName());
+/*        iv_v.xRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         My_adapter2 adapter2 = new My_adapter2(cart.list,context);
         iv_v.xRecyclerView.setAdapter(adapter2);
-        adapter2.setCallcarBack(this);
+        adapter2.setCallcarBack(this);*/
 
     }
 
@@ -79,7 +82,7 @@ public class My_adapter extends XRecyclerView.Adapter<My_adapter.Iv_v> implement
     public int getItemCount() {
         return list.size();
     }
-
+/*
     @Override
     public void ShuaXinitem(boolean a, int i) {
         list.get(i).isChecked=a;
@@ -89,6 +92,11 @@ public class My_adapter extends XRecyclerView.Adapter<My_adapter.Iv_v> implement
         if (callUiBack!=null){
             callUiBack.ShuaXin();
         }
+    }*/
+
+    @Override
+    public void ShuaXinitem(boolean a, int i) {
+
     }
 
     @Override
@@ -102,13 +110,13 @@ public class My_adapter extends XRecyclerView.Adapter<My_adapter.Iv_v> implement
 
         private CheckBox checkBox;
         private TextView textView;
-        private XRecyclerView xRecyclerView;
+      //  private XRecyclerView xRecyclerView;
 
         public Iv_v(@NonNull View itemView) {
             super(itemView);
             checkBox=itemView.findViewById(R.id.g_check_box);
             textView=itemView.findViewById(R.id.g_text);
-            xRecyclerView =itemView.findViewById(R.id.g_xr1);
+     //       xRecyclerView =itemView.findViewById(R.id.g_xr1);
         }
     }
 

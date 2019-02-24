@@ -32,23 +32,60 @@
                 android:layout_width="match_parent"
                 android:layout_height="250dp"/>
 
-            <TextView
-                android:id="@+id/name_x"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp" />
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_height="wrap_content">
 
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/pirce_x"
+                    android:textColor="#f00"
+                    android:textSize="30dp"
+                    android:text="adsf"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/yishou_x"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/name_x"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp" />
+
+                <TextView
+                    android:id="@+id/zhong_x"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp" />
+
+            </LinearLayout>
 
             <WebView
                 android:id="@+id/x_webview"
                 android:layout_below="@+id/detail_product"
                 android:layout_width="match_parent"
-                android:layout_height="500dp"/>
+                android:layout_height="wrap_content"/>
 
 
             <Button
                 android:id="@+id/jiarugou"
                 android:text="加入购物车"
                 android:layout_width="match_parent"
+                android:background="#f00"
                 android:layout_height="match_parent" />
 
 

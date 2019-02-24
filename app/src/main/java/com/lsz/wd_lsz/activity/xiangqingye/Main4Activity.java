@@ -24,7 +24,6 @@ import java.util.List;
 
 public class Main4Activity extends AppCompatActivity implements XiangqingC.Ixiangqing_v, View.OnClickListener {
 
-    private XBanner mImageX;
     private XiangqingP persenter;
     private TextView mNameX;
     /**
@@ -33,6 +32,13 @@ public class Main4Activity extends AppCompatActivity implements XiangqingC.Ixian
     private Button mXFan;
     private XBanner mBannerX;
     private WebView mXWebview;
+    private TextView mPirceX;
+    private TextView mYishouX;
+    private TextView mZhongX;
+    /**
+     * 加入购物车
+     */
+    private Button mJiarugou;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,34 +64,23 @@ public class Main4Activity extends AppCompatActivity implements XiangqingC.Ixian
     @Override
     public void xsuccess(String s) {
         Xiangqing xiangqing = new Gson().fromJson(s, Xiangqing.class);
+        mNameX.setText(xiangqing.getResult().getCategoryName());
+        mPirceX.setText("$:"+xiangqing.getResult().getPrice()+"");
+        mYishouX.setText("销量: "+xiangqing.getResult().getCommentNum()+"");
         String picture = xiangqing.getResult().getPicture();
         String[] split = picture.split(",");
         final List<String> h = new ArrayList<>();
         for (String s1 : split) {
             h.add(s1);
         }
-        mImageX.setData(h, null);
-        mImageX.setmAdapter(new XBanner.XBannerAdapter() {
+        mBannerX.setData(h, null);
+        mBannerX.setmAdapter(new XBanner.XBannerAdapter() {
             @Override
             public void loadBanner(XBanner banner, Object model, View view, int position) {
                 Glide.with(Main4Activity.this).load(h.get(position)).into((ImageView) view);
             }
         });
-        mNameX.setText(xiangqing.getResult().getCategoryName());
-
-    /*    mXWebview.loadDataWithBaseURL(null,xiangqing.getResult().getDescribe(),"text/html","utf-8",null);
-*/
-   /* String js = "<script type=\"text/javascript\">" +
-                "var imgs = document.getElementsByTagName('img');" + // 找到img标签
-                "for(var i = 0; i<imgs.length; i++){" +  // 逐个改变
-                "imgs[i].style.width = '100%';" +  // 宽度改为100%
-                "imgs[i].style.height = 'auto';" +
-                "}" +
-                "</script>";*/
-
-        mXWebview.loadDataWithBaseURL(null, xiangqing.getResult().getDescribe(),"text/html", "utf-8", null);
-
-
+        mXWebview.loadDataWithBaseURL(null, xiangqing.getResult().getDescribe(), "text/html", "utf-8", null);
     }
 
     @Override
@@ -94,13 +89,17 @@ public class Main4Activity extends AppCompatActivity implements XiangqingC.Ixian
     }
 
     private void initView() {
-        mImageX = findViewById(R.id.banner_x);
-        mNameX = findViewById(R.id.name_x);
-        mXFan =  findViewById(R.id.x_fan);
+
+        mXFan = (Button) findViewById(R.id.x_fan);
         mXFan.setOnClickListener(this);
-        mBannerX =  findViewById(R.id.banner_x);
-        mNameX =  findViewById(R.id.name_x);
-        mXWebview =  findViewById(R.id.x_webview);
+        mBannerX = (XBanner) findViewById(R.id.banner_x);
+        mPirceX = (TextView) findViewById(R.id.pirce_x);
+        mYishouX = (TextView) findViewById(R.id.yishou_x);
+        mNameX = (TextView) findViewById(R.id.name_x);
+        mZhongX = (TextView) findViewById(R.id.zhong_x);
+        mXWebview = (WebView) findViewById(R.id.x_webview);
+        mJiarugou = (Button) findViewById(R.id.jiarugou);
+        mJiarugou.setOnClickListener(this);
     }
 
     @Override
@@ -110,6 +109,8 @@ public class Main4Activity extends AppCompatActivity implements XiangqingC.Ixian
                 break;
             case R.id.x_fan:
                 finish();
+                break;
+            case R.id.jiarugou:
                 break;
         }
     }
