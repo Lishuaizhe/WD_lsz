@@ -12,7 +12,7 @@ public class Q_Moldeldian implements Q_Contractdian.I_model {
 
     @Override
     public void GetData(HashMap<String, String> hashMap, final CallBack callBack) {
-        OkhttpUtils.getInstance().doGet(s, hashMap, new OkhttpCallback() {
+        OkhttpUtils.getInstance().doPost(s, hashMap, new OkhttpCallback() {
             @Override
             public void failure(String msg) {
                 callBack.Fuile(msg);
@@ -23,10 +23,7 @@ public class Q_Moldeldian implements Q_Contractdian.I_model {
                 callBack.Success(result);
             }
         });
-
-
     }
-
     public interface CallBack {
         void Success(String s);
         void Fuile(String s);

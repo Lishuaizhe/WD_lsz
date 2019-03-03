@@ -61,18 +61,17 @@ public class CircleFragment extends Fragment implements Q_Contract.I_View,Q_Cont
             @Override
             public void onItemClick(View view, String s, Boolean t) {
                 if (t){
-                    /*
-                    * 点赞
-                    * */
                     Q_Persenterdian persenterdian = new Q_Persenterdian(CircleFragment.this);
                     HashMap<String,String> hashMap = new HashMap<>();
                     hashMap.put("commodityId",s);
                     persenterdian.GetData(hashMap);
+                    return;
                 }else {
-                    /*
-                    * 取消点赞
-                    * */
-
+                    Q_Persenterdian persenterdian = new Q_Persenterdian(CircleFragment.this);
+                    HashMap<String,String> hashMap = new HashMap<>();
+                    hashMap.put("commodityId",s);
+                    persenterdian.GetData(hashMap);
+                    return;
                 }
             }
         });

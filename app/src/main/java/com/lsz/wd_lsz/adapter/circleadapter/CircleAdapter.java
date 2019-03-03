@@ -66,15 +66,7 @@ public class CircleAdapter extends XRecyclerView.Adapter<CircleAdapter.ViewHolde
         viewHolder1.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (resultBean.getDianjia()){
-                    if (mClickListener!=null){
-                        mClickListener.onItemClick(v,resultBean.getCommodityId()+"",false);
-                    }
-                }else {
-                    if (mClickListener!=null){
-                        mClickListener.onItemClick(v,resultBean.getCommodityId()+"",true);
-                    }
-                }
+
             }
         });
 
@@ -83,9 +75,13 @@ public class CircleAdapter extends XRecyclerView.Adapter<CircleAdapter.ViewHolde
             @Override
             public void onClick(View v) {
                 if (resultBean.getDianjia()){
-
+                    if (mClickListener!=null){
+                        mClickListener.onItemClick(v,resultBean.getCommodityId()+"",false);
+                    }
                 }else {
-
+                    if (mClickListener!=null){
+                        mClickListener.onItemClick(v,resultBean.getCommodityId()+"",true);
+                    }
                 }
             }
         });
