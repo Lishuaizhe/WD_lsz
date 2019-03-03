@@ -20,14 +20,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.login_regsiter_activity.MainActivity">
+        <activity android:name=".activity.login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.login_regsiter_activity.RegisterActivity" />
+        <activity android:name=".activity.register.RegisterActivity" />
 
         <!-- Required SDK 核心功能 -->
         <!-- 可配置android:process参数将PushService放在其他进程中 -->
@@ -146,10 +146,16 @@
         </receiver>
 
         <activity
-            android:name=".activity.view_activity_page.Main2Activity"
+            android:name=".activity.fragmentmain.FragmentActivity"
             android:label="@string/title_activity_main2" />
-        <activity android:name=".activity.xiangqingye.Main3Activity" />
-        <activity android:name=".activity.xiangqingye.Main4Activity"></activity>
+        <activity android:name=".activity.details.HomeListActivity" />
+        <activity android:name=".activity.details.DetailsActivity" />
+        <activity android:name=".activity.mine.DataActivity" />
+        <activity android:name=".activity.mine.CircleActivity" />
+        <activity android:name=".activity.mine.FootmarkActivity" />
+        <activity android:name=".activity.mine.WalletActivity" />
+        <activity android:name=".activity.mine.AddressActivity" />
+        <activity android:name=".activity.mine.AddnewAddressActivity"></activity>
     </application>
 
 </manifest>

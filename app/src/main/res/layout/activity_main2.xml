@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.view_activity_page.Main2Activity"
+    tools:context=".activity.fragmentmain.FragmentActivity"
     android:orientation="vertical"
     android:background="#fff">
 

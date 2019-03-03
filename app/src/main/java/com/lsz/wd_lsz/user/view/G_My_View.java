@@ -26,7 +26,7 @@ public class G_My_View extends LinearLayout {
         this(context, attrs,0);
     }
 
-    public G_My_View(Context context,  AttributeSet attrs, int defStyleAttr) {
+    public G_My_View(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
@@ -36,6 +36,7 @@ public class G_My_View extends LinearLayout {
         jian = view.findViewById(R.id.minus);
         editText = view.findViewById(R.id.et_num);
         jia = view.findViewById(R.id.add);
+
 
         jia.setOnClickListener(new OnClickListener() {
             @Override
@@ -62,6 +63,7 @@ public class G_My_View extends LinearLayout {
                 }
             }
         });
+
     }
 
     private IG_My_View ig_my_view;

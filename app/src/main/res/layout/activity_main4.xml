@@ -1,58 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.xiangqingye.Main4Activity">
+    tools:context=".activity.details.DetailsActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-
-        <Button
-            android:id="@+id/x_fan"
-            android:layout_width="wrap_content"
-            android:text="返回"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/x_fan"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/cha_fan"
+                android:text="返回" />
+
             <com.stx.xhb.xbanner.XBanner
                 android:id="@+id/banner_x"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"/>
+                app:isShowNumberIndicator="true"
+                app:isShowIndicatorOnlyOne="true"
+                app:pointsPosition="RIGHT"
+                app:tipTextSize="12sp"
+                android:layout_height="274dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
-                android:gravity="center"
+                android:layout_marginTop="14dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
                 android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_weight="1"
                     android:id="@+id/pirce_x"
                     android:textColor="#f00"
-                    android:textSize="30dp"
-                    android:text="adsf"
-                    android:gravity="center"
+                    android:textSize="20sp"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp" />
+                    android:layout_height="wrap_content" />
 
                 <TextView
                     android:layout_weight="1"
                     android:id="@+id/yishou_x"
+                    android:textColor="#666666"
+                    android:textSize="12sp"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp" />
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
@@ -60,17 +66,25 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:layout_marginRight="24dp"
+                android:layout_marginLeft="24dp"
                 android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/name_x"
+                    android:textSize="12sp"
+                    android:textColor="#666666"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp" />
+                    android:layout_height="wrap_content" />
 
                 <TextView
                     android:id="@+id/zhong_x"
+                    android:textSize="12sp"
+                    android:textColor="#666666"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp" />
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
@@ -78,19 +92,32 @@
                 android:id="@+id/x_webview"
                 android:layout_below="@+id/detail_product"
                 android:layout_width="match_parent"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
                 android:layout_height="wrap_content"/>
 
-
-            <Button
-                android:id="@+id/jiarugou"
-                android:text="加入购物车"
-                android:layout_width="match_parent"
-                android:background="#f00"
-                android:layout_height="match_parent" />
-
-
         </LinearLayout>
+
     </ScrollView>
 
 
-</LinearLayout>
+    <ImageButton
+        android:id="@+id/buy"
+        android:layout_width="41dp"
+        android:layout_height="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/buy"/>
+
+    <ImageButton
+        android:id="@+id/jiagou"
+        android:layout_width="41dp"
+        android:layout_height="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/gou"/>
+
+
+</RelativeLayout>

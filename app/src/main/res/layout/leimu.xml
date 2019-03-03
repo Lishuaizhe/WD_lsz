@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
 
-    <com.jcodecraeer.xrecyclerview.XRecyclerView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/a_x_recy_view"
         android:layout_weight="1"
         android:layout_width="match_parent"
@@ -13,27 +13,39 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:gravity="center"
+        android:layout_height="50dp">
         <CheckBox
             android:layout_weight="1"
             android:id="@+id/a_xuan"
-            android:text="￥：0.0"
             android:textSize="18sp"
-            android:textColor="#f00"
+            android:textColor="#666666"
             android:layout_marginLeft="20dp"
-            android:layout_width="match_parent"
+            android:text="全选"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent" />
 
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:text="￥：0.0"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:layout_height="50dp"
+            />
+
         <Button
+            android:layout_weight="1"
             android:id="@+id/a_button"
-            android:layout_weight="2"
             android:textSize="15dp"
             android:padding="2dp"
             android:layout_margin="2dp"
-            android:textColor="#fff"
-            android:background="#f00"
-            android:text="发送订单"
-            android:layout_width="match_parent"
+            android:textColor="#ffffff"
+            android:background="#ff5e70"
+            android:text="去结算"
+            android:layout_width="118dp"
             android:layout_height="match_parent" />
     </LinearLayout>
 

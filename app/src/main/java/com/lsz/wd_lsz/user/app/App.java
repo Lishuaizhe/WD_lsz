@@ -1,6 +1,7 @@
 package com.lsz.wd_lsz.user.app;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -10,6 +11,12 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import cn.jpush.android.api.JPushInterface;
 
 public class App  extends Application {
+
+    private Context context;
+
+    public Context getContext() {
+        return context;
+    }
 
     @Override
     public void onCreate() {

@@ -32,7 +32,7 @@ public class OkhttpUtils {
     private static OkhttpUtils mInstance;//私有属性
 
 
-    private OkhttpUtils() {//私有构造方法
+    public OkhttpUtils() {//私有构造方法
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         okHttpClient = new OkHttpClient.Builder()
@@ -67,14 +67,18 @@ public class OkhttpUtils {
     public void doGet(String url,HashMap<String, String> parmas, final OkhttpCallback requestCallback) {
 
         StringBuilder p = new StringBuilder();
+
         if (parmas!=null&&parmas.size()>0){
             for (Map.Entry<String, String> map : parmas.entrySet()) {
-
                 p.append(map.getKey()).append("=").append(map.getValue()).append("&");
             }
         }
+
         Request request = new Request.Builder().url(url+"?"+p.toString())//1550992070631607
-                .addHeader("userId","607").addHeader("sessionId","1550992070631607").get().build();
+                .addHeader("userId","1072").addHeader("sessionId","15510870502561072")
+                .get()
+                .build();
+
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -120,8 +124,8 @@ public class OkhttpUtils {
         RequestBody requestBody = builder.build();
 
         Request request = new Request.Builder().url(url)
-                .addHeader("userId","1010")
-                .addHeader("sessionId","15320748258726")
+                .addHeader("userId","1072")
+                .addHeader("sessionId","15510870502561072")
                 .post(requestBody).build();
 
         okHttpClient.newCall(request).enqueue(new Callback() {
@@ -157,13 +161,60 @@ public class OkhttpUtils {
                 }
             }
         });
-
-
     }
 
-    /**
-     * 上传头像,文件
-     */
+        public  void doPut(String url, Map<String,Object> map, final OkhttpCallback callback){
+
+            FormBody.Builder builder = new FormBody.Builder()
+                    .add("data", String.valueOf(map));
+
+            RequestBody requestBody = builder.build();
+
+            Request request = new Request.Builder().url(url)
+                    .addHeader("userId","1072")
+                    .addHeader("sessionId","15510870502561072")
+                    .put(requestBody)
+                    .build();
+
+            okHttpClient.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+
+                    if (callback != null) {
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                callback.failure("网络异常");
+                            }
+                        });
+                    }
+                }
+
+                @Override
+                public void onResponse(Call call, final Response response) throws IOException {
+                    if (callback != null) {
+                        if (200 == response.code()) {
+                            final String result = response.body().string();
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    callback.success(result);
+                                }
+                            });
+
+                        }
+                    }
+                }
+            });
+
+
+
+
+        }
+
+        /**
+         * 上传头像,文件
+         */
     public void uploadFile(String url, HashMap<String, Object> params, final OkhttpCallback okhttpCallback) {
 
 

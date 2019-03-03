@@ -6,7 +6,7 @@
     android:background="@drawable/login_back"
     android:paddingLeft="36dp"
     android:paddingRight="36dp"
-    tools:context=".activity.login_regsiter_activity.RegisterActivity"
+    tools:context=".activity.register.RegisterActivity"
     android:orientation="vertical">
 
     <LinearLayout
